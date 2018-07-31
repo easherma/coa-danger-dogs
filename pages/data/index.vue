@@ -1,14 +1,20 @@
 <template>
-  <section class="container">
-  </section>
+<section class="container">
+  {{ data }}
+</section>
 </template>
 
 <script>
-import AppLogo from '~/components/AppLogo.vue'
-
 export default {
-  components: {
-    AppLogo
+  async asyncData({
+    params
+  }) {
+    let {
+      data
+    } = await app.$axios.$get(`https://data.austintexas.gov/resource/h8x4-nvyi.json`)
+    return {
+      data
+    }
   }
 }
 </script>
