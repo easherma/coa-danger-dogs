@@ -1,20 +1,25 @@
 <template>
-<section class="container">
-  {{ data }}
-</section>
+  <main>
+    <h2> This is what the data looks like </h2>
+    {{ sodaData }}
+  </main>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+// const url = "https://data.austintexas.gov/resource/h8x4-nvyi.json";
 export default {
-  async asyncData({
-    params
-  }) {
-    let {
-      data
-    } = await app.$axios.$get(`https://data.austintexas.gov/resource/h8x4-nvyi.json`)
+  data() {
     return {
-      data
-    }
-  }
+    results: []
+  };
+  },
+  computed: mapState([
+    'sodaData'
+  ]),
+  mounted() {
+    this.$store.dispatch('getData')
+  },
+
 }
 </script>

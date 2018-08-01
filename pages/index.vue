@@ -8,6 +8,7 @@
       <h2 class="subtitle">
         website displaying information about dangerous dogs in Austin, Texas
       </h2>
+      {{ sodaData }}
       <div class="links">
         <a
           href="https://nuxtjs.org/"
@@ -24,11 +25,23 @@
 
 <script>
 import AppLogo from '~/components/AppLogo.vue'
+import { mapState } from 'vuex'
 
 export default {
   components: {
     AppLogo
-  }
+  },
+  data() {
+    return {
+    results: []
+  };
+  },
+  computed: mapState([
+    'sodaData'
+  ]),
+  mounted() {
+    this.$store.dispatch('getData')
+  },
 }
 </script>
 
@@ -62,4 +75,3 @@ export default {
   padding-top: 15px;
 }
 </style>
-
