@@ -1,14 +1,12 @@
 <template>
   <section class="container">
     <div>
-      <app-logo/>
-      <h1 class="title">
-        coa-danger-dogs
-      </h1>
-      <h2 class="subtitle">
-        website displaying information about dangerous dogs in Austin, Texas
-      </h2>
-      
+      <page-header
+        title="Dangerous Dogs of Austin"
+        subtitle1="A collection of data for your saftey, education, and empowerment"
+        subtitle2="made by Eric Sherman for City of Austin"
+      />
+
       {{ sodaData }}
       <div class="links">
         <a
@@ -26,11 +24,13 @@
 
 <script>
 import AppLogo from '~/components/AppLogo.vue'
+import PageHeader from '~/components/BaseHeader'
 import { mapState } from 'vuex'
 
 export default {
   components: {
-    AppLogo
+    AppLogo,
+    PageHeader
   },
   data() {
     return {
@@ -47,32 +47,5 @@ export default {
 </script>
 
 <style>
-.container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
+/* use tachyons! http://tachyons.io */
 </style>
