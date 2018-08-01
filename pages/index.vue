@@ -7,6 +7,9 @@
         subtitle2="made by Eric Sherman for City of Austin"
       />
       <base-section title="Purpose" />
+      
+
+      <base-card-grid />
 
       {{ sodaData }}
       <div class="links">
@@ -27,6 +30,7 @@
 import AppLogo from '~/components/AppLogo.vue'
 import BaseHeader from '~/components/core/BaseHeader'
 import BaseSection from '~/components/core/BaseSection'
+import BaseCardGrid from '~/components/core/BaseCardGrid'
 import { mapState } from 'vuex'
 
 export default {
@@ -34,6 +38,7 @@ export default {
     AppLogo,
     BaseHeader,
     BaseSection,
+    BaseCardGrid,
   },
   data() {
     return {

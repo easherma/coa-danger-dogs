@@ -1,11 +1,13 @@
 <template>
-  <section class="pa3 pa5-ns">
-    <header>
-      <h1>{{ title }}</h1>
-    </header>
-    <p class="measure lh-copy">
-      {{ copy }}
-    </p>
+  <section class="">
+    <details>
+      <summary>
+        <h1 class="f1 lh-title">{{ title }}</h1>
+      </summary>
+      <p class="">
+        {{ copy }}
+      </p>
+    </details>
   </section>
 </template>
 
