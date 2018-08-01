@@ -8,6 +8,7 @@ module.exports = {
 	require: [
 		path.join(__dirname, 'node_modules/tachyons/css/tachyons.min.css')
 	],
+	defaultExample: true,
 
 	webpackConfig: {
 		resolve: {
