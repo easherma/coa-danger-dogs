@@ -38,7 +38,8 @@ module.exports = {
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
           exclude: /(node_modules)/
-        })
+        }),
+        const vueLoader = config.module.rules.find((rule) => rule.loader === 'vue-loader');
       }
     }
   }
