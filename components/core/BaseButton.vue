@@ -17,7 +17,7 @@
  * The only true button.
  */
 export default {
-	name: 'Button',
+	name: 'BaseButton',
 	// mixins: [loggerMixin],
 	props: {
 		/**

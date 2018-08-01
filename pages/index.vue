@@ -6,6 +6,7 @@
         subtitle1="A collection of data for your saftey, education, and empowerment"
         subtitle2="made by Eric Sherman for City of Austin"
       />
+      <base-section title="Purpose" />
 
       {{ sodaData }}
       <div class="links">
@@ -25,12 +26,14 @@
 <script>
 import AppLogo from '~/components/AppLogo.vue'
 import BaseHeader from '~/components/core/BaseHeader'
+import BaseSection from '~/components/core/BaseSection'
 import { mapState } from 'vuex'
 
 export default {
   components: {
     AppLogo,
-    BaseHeader
+    BaseHeader,
+    BaseSection,
   },
   data() {
     return {
