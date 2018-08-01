@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.1",
+    "dog-names": "^1.0.2",
     "nuxt": "^1.0.0"
   },
   "devDependencies": {

@@ -16,8 +16,8 @@
 
 <script>
 /**
- * header for page
- * @author [Vue](https://vuejs.org/v2/examples/modal.html)
+ * header for a page or section of a page
+ *
  */
 export default {
   name: 'BaseHeader',
@@ -41,3 +41,12 @@ export default {
     /* ... */
 }
 </script>
+<docs>
+  ```vue
+  <base-header
+    title="Header Title..."
+    subtitle1="More description here..."
+    subtitle2="...and even more to say here!"
+  />
+  ```
+</docs>

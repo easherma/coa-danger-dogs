@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <div>
-      <page-header
+      <base-header
         title="Dangerous Dogs of Austin"
         subtitle1="A collection of data for your saftey, education, and empowerment"
         subtitle2="made by Eric Sherman for City of Austin"
@@ -24,13 +24,13 @@
 
 <script>
 import AppLogo from '~/components/AppLogo.vue'
-import PageHeader from '~/components/BaseHeader'
+import BaseHeader from '~/components/core/BaseHeader'
 import { mapState } from 'vuex'
 
 export default {
   components: {
     AppLogo,
-    PageHeader
+    BaseHeader
   },
   data() {
     return {
