@@ -6,6 +6,11 @@ module.exports = {
   axios: {
     // proxyHeaders: false
   },
+
+  css: [
+  // Load a Node.js module directly (here it's a Sass file)
+  'tachyons',
+],
   /*
   ** Headers of the page
   */
@@ -38,8 +43,7 @@ module.exports = {
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
           exclude: /(node_modules)/
-        }),
-        const vueLoader = config.module.rules.find((rule) => rule.loader === 'vue-loader');
+        })
       }
     }
   }
