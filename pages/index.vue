@@ -8,6 +8,7 @@
       <h2 class="subtitle">
         website displaying information about dangerous dogs in Austin, Texas
       </h2>
+      
       {{ sodaData }}
       <div class="links">
         <a
