@@ -1,3 +1,5 @@
+const webpack = require('webpack')
+
 module.exports = {
   modules: [
     '@nuxtjs/axios',
@@ -34,6 +36,11 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    plugins: [
+      new webpack.ProvidePlugin({
+        mapboxgl: 'mapbox-gl'
+      })
+    ],
     /*
     ** Run ESLint on save
     */
@@ -46,7 +53,6 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    },
-    vendor: ['mapbox-gl', 'mapbox-gl-vue']
+    }
   }
 }
