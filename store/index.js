@@ -8,6 +8,7 @@ const createStore = () => {
       counter: 0,
       sodaData: [],
       searchPoint: [],
+      queryRows: [],
     },
     actions: {
       async getData ({ commit }) {
@@ -28,6 +29,9 @@ const createStore = () => {
       },
       SET_POINT (state, payload) {
         state.searchPoint = payload
+      },
+      SET_ROWS (state, payload) {
+        state.queryRows = payload
       }
     }
   })

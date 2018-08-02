@@ -29,28 +29,14 @@
 import Mapbox from 'mapbox-gl-vue';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import soda from 'soda-js';
-// import { mapMutations } from 'vuex'
-// import { mapState } from 'vuex';
+
 
 const sodaOpts = {
         "apiToken" : "HoAwLl2kKqZiPzsfxb02maQBm"
 }
 
 const consumer = new soda.Consumer('data.austintexas.gov', sodaOpts);
-// const pont =
-var pointSearch = `'POINT (-97.743061, 30.267153)'`
 
-consumer.query()
-  .withDataset('h8x4-nvyi')
-  .limit(5)
-  .select(`*`)
-  //default distance from city center
-  .order(`"distance_in_meters(location, ${pointSearch})"`)
-  .getRows()
-    .on('success', function(rows) { console.log(rows); })
-    .on('error', function(error) { console.error(error); });
-
-// const query = `https://data.austintexas.gov/resource/h8x4-nvyi.geojson?&$order=distance_in_meters(location, 'POINT (-97.743061, 30.267153)')&$limit=5&$select=*, distance_in_meters(location, 'POINT (-97.743061, 30.267153)') AS range`;
 
 export default {
   name: 'MapboxMap',
@@ -58,22 +44,8 @@ export default {
     Mapbox
   },
   props: {
-    // title: {
-    //   type: String,
-    //   required: false,
-    //   default: '',
-    // },
-    // copy: {
-    //   type: String,
-    //   required: false,
-    //   default: '',
-    // }
+
   },
-  // computed:{
-  //   computed: mapState([
-  //     'searchPoint'
-  //   ]),
-  // },
   methods: {
     mapLoaded(map) {
 
@@ -90,7 +62,13 @@ export default {
 
       map.addLayer({
         'id': 'DDDlayer',
-        'type': 'heatmap',
+        'type': 'circle',
+        paint: {
+          'circle-radius': 3,
+          'circle-color': '#bf0a00',
+          'circle-stroke-width': 2,
+          'circle-stroke-color': '#fff'
+        },
         'source': 'DDDgeojson',
       });
       // point for geocoder location
@@ -98,7 +76,7 @@ export default {
         type: 'geojson',
         data: {
           type: 'FeatureCollection',
-          features: [] // Notice that initially there are no features
+          features: []
         }
       });
 
@@ -115,19 +93,30 @@ export default {
       });
       geocoder.on('result', function(ev) {
         const searchResult = ev.result.geometry;
+        // TODO move to store properly
         // this.$nuxt.$store.commit('searchPoint', ev.result.geometry)
         // this.$store.commit('SET_POINT', ev.result.geometry)
-        window.$nuxt.$store.commit('SET_POINT', ev.result.geometry)
-        pointSearch = ev.result.geometry;
-        console.log(pointSearch);
         // this.$store.dispatch('getPoint')
+        window.$nuxt.$store.commit('SET_POINT', ev.result.geometry)
+        //adds geocoded result
         map.getSource('single-point').setData(searchResult);
+        //takes point and queries socrata to find nearby coords, sort by distance
+        var pointSearch = `'POINT (${searchResult.coordinates[0]} ${searchResult.coordinates[1]})'`
+        var query = `*, (distance_in_meters(location, ${pointSearch}) * 3.28084) AS range_ft`
+
+
+        consumer.query()
+          .withDataset('h8x4-nvyi')
+          .select(`${query}`)
+          .order(`range_ft`)
+          .limit(10)
+          .getRows()
+            .on('success', function(rows) {         window.$nuxt.$store.commit('SET_ROWS', rows) })
+            .on('error', function(error) { console.error(error); });
       });
     },
   }
 }
-
-
 
 </script>
 <style scoped>
