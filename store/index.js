@@ -1,6 +1,6 @@
 import Vuex from 'vuex'
 
-const url = "https://data.austintexas.gov/resource/h8x4-nvyi.geojson";
+const url = "https://data.austintexas.gov/resource/h8x4-nvyi.json";
 
 const createStore = () => {
   return new Vuex.Store({
