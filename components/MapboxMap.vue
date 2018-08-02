@@ -28,8 +28,27 @@
 <script>
 import Mapbox from 'mapbox-gl-vue';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import soda from 'soda-js';
 
-const query = `https://data.austintexas.gov/resource/h8x4-nvyi.geojson?&$order=distance_in_meters(location, 'POINT (-97.743061, 30.267153)')&$limit=5&$select=*, distance_in_meters(location, 'POINT (-97.743061, 30.267153)') AS range`;
+const sodaOpts = {
+        "apiToken" : "HoAwLl2kKqZiPzsfxb02maQBm"
+}
+
+const consumer = new soda.Consumer('data.austintexas.gov', sodaOpts);
+
+
+
+consumer.query()
+  .withDataset('h8x4-nvyi')
+  .limit(5)
+  .select(`*`)
+  //default distance from city center
+  .order(`"distance_in_meters(location, 'POINT (-97.743061, 30.267153)')"`)
+  .getRows()
+    .on('success', function(rows) { console.log(rows); })
+    .on('error', function(error) { console.error(error); });
+
+// const query = `https://data.austintexas.gov/resource/h8x4-nvyi.geojson?&$order=distance_in_meters(location, 'POINT (-97.743061, 30.267153)')&$limit=5&$select=*, distance_in_meters(location, 'POINT (-97.743061, 30.267153)') AS range`;
 
 export default {
   name: 'MapboxMap',
@@ -94,7 +113,7 @@ export default {
         }
       });
       geocoder.on('result', function(ev) {
-        var searchResult = ev.result.geometry;
+        const searchResult = ev.result.geometry;
         map.getSource('single-point').setData(searchResult);
       });
     },
