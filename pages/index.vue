@@ -7,7 +7,7 @@
         subtitle2="made by Eric Sherman for City of Austin"
       />
       <base-section title="Purpose" />
-      
+
 
       <base-card-grid />
 
@@ -32,13 +32,14 @@ import BaseHeader from '~/components/core/BaseHeader'
 import BaseSection from '~/components/core/BaseSection'
 import BaseCardGrid from '~/components/core/BaseCardGrid'
 import { mapState } from 'vuex'
+import Mapbox from 'mapbox-gl-vue';
+
 
 export default {
   components: {
     AppLogo,
-    BaseHeader,
-    BaseSection,
-    BaseCardGrid,
+    Mapbox
+
   },
   data() {
     return {
@@ -55,5 +56,9 @@ export default {
 </script>
 
 <style>
-/* use tachyons! http://tachyons.io */
+
+#map {
+  width: 100%;
+  height: 500px;
+}
 </style>
