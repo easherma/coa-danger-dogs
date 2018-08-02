@@ -13,6 +13,7 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@mapbox/mapbox-gl-geocoder": "^2.3.0",
     "@nuxtjs/axios": "^5.3.1",
     "mapbox-gl": "^0.47.0",
     "mapbox-gl-vue": "^1.9.0",

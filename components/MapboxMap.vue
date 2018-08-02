@@ -3,8 +3,8 @@
     <mapbox
       :map-options="{
         style: 'mapbox://styles/mapbox/light-v9',
-        center: [-96, 37.8],
-        zoom: 3
+        center: [-97.743061, 30.267153],
+        zoom: 9
       }"
       :geolocate-control="{
         show: true,
@@ -19,6 +19,7 @@
         position: 'top-left'
       }"
       access-token="pk.eyJ1IjoiZWFzaGVybWEiLCJhIjoiY2oxcW51Nzk2MDBkbTJxcGUxdm85bW5xayJ9.7mL0wQ7cjifWwt5DrXMuJA"
+      @map-init="mapInit"
       @map-load="mapLoaded"
 
     />
@@ -27,6 +28,9 @@
 
 <script>
 import Mapbox from 'mapbox-gl-vue';
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+
+
 
 export default {
   name: 'MapboxMap',
@@ -45,8 +49,21 @@ export default {
     //   default: '',
     // }
   },
+  // computed:{
+  //   mapInit(map) {
+  //     const Geocoder = new MapboxGeocoder();
+  //     map.addControl(Geocoder);
+	// 	}
+  // },
   methods: {
+    mapInit(map) {
+      map.addControl(new MapboxGeocoder({
+          accessToken: "pk.eyJ1IjoiZWFzaGVybWEiLCJhIjoiY2oxcW51Nzk2MDBkbTJxcGUxdm85bW5xayJ9.7mL0wQ7cjifWwt5DrXMuJA"
+      }));
+		},
     mapLoaded(map) {
+
+
       map.addSource('DDDgeojson', {
         type: 'geojson',
         data: 'https://data.austintexas.gov/resource/h8x4-nvyi.geojson',
