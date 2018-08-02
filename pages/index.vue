@@ -38,6 +38,9 @@ import Mapbox from 'mapbox-gl-vue';
 export default {
   components: {
     AppLogo,
+    BaseHeader,
+    BaseSection,
+    BaseCardGrid,
     Mapbox
 
   },
