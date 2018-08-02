@@ -29,21 +29,23 @@
 import Mapbox from 'mapbox-gl-vue';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import soda from 'soda-js';
+// import { mapMutations } from 'vuex'
+// import { mapState } from 'vuex';
 
 const sodaOpts = {
         "apiToken" : "HoAwLl2kKqZiPzsfxb02maQBm"
 }
 
 const consumer = new soda.Consumer('data.austintexas.gov', sodaOpts);
-
-
+// const pont =
+var pointSearch = `'POINT (-97.743061, 30.267153)'`
 
 consumer.query()
   .withDataset('h8x4-nvyi')
   .limit(5)
   .select(`*`)
   //default distance from city center
-  .order(`"distance_in_meters(location, 'POINT (-97.743061, 30.267153)')"`)
+  .order(`"distance_in_meters(location, ${pointSearch})"`)
   .getRows()
     .on('success', function(rows) { console.log(rows); })
     .on('error', function(error) { console.error(error); });
@@ -68,10 +70,9 @@ export default {
     // }
   },
   // computed:{
-  //   mapInit(map) {
-  //     const Geocoder = new MapboxGeocoder();
-  //     map.addControl(Geocoder);
-	// 	}
+  //   computed: mapState([
+  //     'searchPoint'
+  //   ]),
   // },
   methods: {
     mapLoaded(map) {
@@ -114,6 +115,12 @@ export default {
       });
       geocoder.on('result', function(ev) {
         const searchResult = ev.result.geometry;
+        // this.$nuxt.$store.commit('searchPoint', ev.result.geometry)
+        // this.$store.commit('SET_POINT', ev.result.geometry)
+        window.$nuxt.$store.commit('SET_POINT', ev.result.geometry)
+        pointSearch = ev.result.geometry;
+        console.log(pointSearch);
+        // this.$store.dispatch('getPoint')
         map.getSource('single-point').setData(searchResult);
       });
     },
