@@ -18,7 +18,8 @@
     "mapbox-gl": "^0.47.0",
     "mapbox-gl-vue": "^1.9.0",
     "nuxt": "^1.0.0",
-    "soda-js": "^0.2.3"
+    "soda-js": "^0.2.3",
+    "vue-tables-2": "^1.4.64"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
