@@ -1,39 +1,81 @@
 <template>
   <main>
     <h2> This is what the data looks like </h2>
-    <v-client-table
+    <!-- <v-client-table
       :data="$store.state.sodaData"
       :columns="columns"
-      :options="options"/>
-      <!-- {{ sodaData }} -->
+      :options="options"/> -->
+    <vue-good-table
+      :columns="columns"
+      :rows="$store.state.sodaData"
+      min-height="300px"
+    />
+    <!-- {{ sodaData }} -->
   </main>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-// import ClientTable from 'vue-tables-2';
-// const url = "https://data.austintexas.gov/resource/h8x4-nvyi.json";
+import { VueGoodTable } from 'vue-good-table';
+
 export default {
-  // components: {
-  //   ClientTable
-  // },
+  components: {
+    VueGoodTable,
+  },
   data() {
     return {
       columns: [
-        ':@computed_region_a3it_2a2z',
-        'address',
-        'description_of_dog',
-        'first_name',
-        'last_name',
-        'location',
-        'location_address',
-        'location_state',
-        'location_zip',
-        'zip_code'
+        {
+          field: ':@computed_region_a3it_2a2z',
+          type: 'number',
+          label: ':@computed_region_a3it_2a2z'
+        },
+        {
+          field: 'address',
+          type: 'text',
+          label: 'address'
+        },
+        {
+          field: 'description_of_dog',
+          type: 'text',
+          label: 'description_of_dog'
+        },
+        {
+          field: 'first_name',
+          type: 'text',
+          label: 'first_name'
+        },
+        {
+          field: 'last_name',
+          type: 'text',
+          label: 'last_name'
+        },
+        {
+          field: 'location',
+          type: 'text',
+          label: 'location'
+        },
+        {
+          field: 'location_address',
+          type: 'text',
+          label: 'location_address'
+        },
+        {
+          field: 'location_state',
+          type: 'text',
+          label: 'location_state'
+        },
+        {
+          field: 'location_zip',
+          type: 'number',
+          label: 'location_zip'
+        },
+        {
+          field: 'zip_code',
+          type: 'number',
+          label: 'zip_code'
+        }
       ],
-      options: {
-              // see the options API
-          }
   };
   },
   computed: mapState([
@@ -46,63 +88,4 @@ export default {
 }
 </script>
 <style>
-body {
-  font-family: Helvetica Neue, Arial, sans-serif;
-  font-size: 14px;
-  color: #444;
-}
-
-table {
-  border: 2px solid #42b983;
-  border-radius: 3px;
-  background-color: #fff;
-}
-
-th {
-  background-color: #42b983;
-  color: rgba(255,255,255,0.66);
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-td {
-  background-color: #f9f9f9;
-}
-
-th, td {
-  min-width: 120px;
-  padding: 10px 20px;
-}
-
-th.active {
-  color: #fff;
-}
-
-th.active .arrow {
-  opacity: 1;
-}
-
-.arrow {
-  display: inline-block;
-  vertical-align: middle;
-  width: 0;
-  height: 0;
-  margin-left: 5px;
-  opacity: 0.66;
-}
-
-.arrow.asc {
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-bottom: 4px solid #fff;
-}
-
-.arrow.dsc {
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-top: 4px solid #fff;
-}
 </style>

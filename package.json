@@ -30,7 +30,9 @@
     "eslint-loader": "^1.7.1",
     "eslint-plugin-vue": "^4.0.0",
     "tachyons": "^4.10.0",
+    "vue-good-table": "^2.12.2",
     "vue-styleguidist": "^1.7.13",
-    "vue-webpack-loaders": "^1.0.8"
+    "vue-webpack-loaders": "^1.0.8",
+    "vuetable-2": "^1.7.5"
   }
 }

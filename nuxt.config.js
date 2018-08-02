@@ -31,7 +31,7 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css' }
       ],
   },
-  plugins: ['~/plugins/vue-tables-2']
+  plugins: ['~/plugins/vue-tables-2', '~/plugins/vuetable-2', '~/plugins/vue-good-table']
   ,
   /*
   ** Customize the progress bar color
