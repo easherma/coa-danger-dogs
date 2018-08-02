@@ -1,4 +1,5 @@
 import Vue from 'vue'
-import VueTables from 'vue-tables-2';
+import { ClientTable } from 'vue-tables-2';
 
-Vue.use(VueTables);
+// Vue.use(ClientTable, {}, false);
+Vue.use(ClientTable, {}, false, 'bulma', 'default');

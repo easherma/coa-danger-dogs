@@ -41,6 +41,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    vendor: ["vue-tables-2"],
     plugins: [
       new webpack.ProvidePlugin({
         mapboxgl: 'mapbox-gl',

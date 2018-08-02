@@ -1,15 +1,21 @@
 <template>
   <div id="people">
-    <v-client-table 
-      :data="tableData" 
-      :columns="columns" 
+    <client-table
+      :data="tableData"
+      :columns="columns"
       :options="options"/>
   </div>
 </template>
 
 <script>
+import ClientTable from 'vue-tables-2';
 
 export default {
+  name: 'BaseTableGrid'
+  ,
+  components: {
+    ClientTable
+  },
   data() {
     return{
       data: {
@@ -33,7 +39,11 @@ export default {
 </script>
 <docs>
   ```vue
-  <base-table-grid
-  />
+  <div id="people">
+    <client-table
+      :data="tableData"
+      :columns="columns"
+      :options="options"/>
+  </div>
   ```
 </docs>
