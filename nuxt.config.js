@@ -2,6 +2,12 @@ const webpack = require('webpack')
 
 
 module.exports = {
+
+transition: {
+  name: 'page',
+  mode: 'out-in',
+
+},
   modules: [
     '@nuxtjs/axios',
   ],

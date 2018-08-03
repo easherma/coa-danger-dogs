@@ -6,7 +6,15 @@
         subtitle1="A collection of data for your saftey, education, and empowerment"
         subtitle2="made by Eric Sherman for City of Austin"
       />
+
+      <li
+        v-for="(route, index) in $router.options.routes"
+        :key="index"
+      >
+        <nuxt-link :to="route.path">{{ route.name }}</nuxt-link>
+      </li>
       <base-section title="Purpose" />
+
       <div class="fr mr4 mw7 right">
         <soda-map />
       </div>
