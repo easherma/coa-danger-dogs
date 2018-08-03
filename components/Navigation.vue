@@ -26,3 +26,24 @@
     </a>
   </div>
 </template>
+
+<script>
+export default {
+  // computed: {
+  //   sorted: function () {
+  //     const sortedArray = this.array.sort((a, b) => a.name > b.name );
+  //     return sortedArray
+  //   }
+  // }
+//   computed: {
+//   fullName () {
+//     return `${this.firstName} ${this.lastName}`
+//   },
+//   sortedArray () {
+//     return this.array.slice(0).reverse() // .slice makes a copy of the array, instead of mutating the orginal
+//   }
+// }
+}
+
+
+</script>

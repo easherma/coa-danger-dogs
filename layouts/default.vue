@@ -10,7 +10,9 @@
     <nav class="db dt-l w-100 border-box pa3 ph7-l bg-blue">
       <Navigation />
     </nav>
-    <nuxt/>
+    <div class="mw9 center pa1 pt3-ns ph7-l">
+      <nuxt/>
+    </div>
     <footer class="bg-yellow ph3 ph4-ns pv2 ">
       <nav class="db dt-l w-100 pb3 tc">
 

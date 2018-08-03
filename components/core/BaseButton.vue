@@ -3,7 +3,7 @@
     <button
       :class="styleClass"
       type="buttonType"
-      @click="onClick">
+    >
       <slot/>
     </button>
   </div>

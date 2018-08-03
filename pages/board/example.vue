@@ -1,28 +1,21 @@
 <template>
-  <main>
+  <main class="center">
     <h2> QA Board </h2>
-    <ul>
-      <li
-        v-for="(card, index) in cards"
-        :key="index"
-      >{{ card.header +' '+ user.copy }}
-      </li>
-    </ul>
-    <base-card />
-    <base-card-grid />
-    <div class="pa4 black-80">
-      <base-form
-        form-header="Submit a Question!"
-        instruction="Write your Question here and submit when done:"
-        form-name="question"
-        @submit.prevent="addNewCard"
-        @click="addNewCard"
-      />
-
-      <base-form
-        form-header="Submit a Answer!"
-        instruction="Write your answer here and submit when done:"
-        form-name="answer"
+    <div class="pa4 black-80 mw7">
+      <ul id="cardsExample">
+        <div
+          v-for="(card, index) in cards"
+          :key="index"
+        >
+          <base-card
+            :header="card.question"
+            :body="card.answer"
+          />
+        </div>
+      </ul>
+      <card-form
+        form-name="questions"
+        @submit.prevent="onSubmit"
       />
     </div>
 
@@ -34,6 +27,7 @@
 import BaseCard from '~/components/core/BaseCard'
 import BaseCardGrid from '~/components/core/BaseCardGrid'
 import BaseForm from '~/components/core/BaseForm'
+import CardForm from '~/components/CardForm'
 
 // const cardsExample = {}
 
@@ -43,10 +37,16 @@ export default {
     BaseCard,
     BaseCardGrid,
     BaseForm,
+    CardForm
   },
   data(){
     return {
-      cards: BaseForm.data.formInput
+      cards: [
+        {
+          question: "How does this work?",
+          answer: "Not very well at the moment"
+      }
+      ]
     }
   },
   methods: {
@@ -54,6 +54,10 @@ export default {
     this.cards.push("test");
      // this.cards.push(submitEvent.target.elements.formInput.value);
      console.log(event);
+  },
+  onSubmit () {
+    console.log("testingg");
+    // this.cards.push(this.formInput)
   }
 }
 }

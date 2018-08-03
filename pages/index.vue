@@ -1,13 +1,11 @@
 <template>
-  <section class="container">
+  <section>
     <div>
       <base-section title="Purpose" />
-
       <div class="fr mr4 mw7 right">
         <soda-map />
       </div>
-
-      <base-card-grid />
+      <base-section title="Purpose" />
 
     </div>
   </section>

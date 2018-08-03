@@ -3,7 +3,6 @@
     :name="formName"
     :method="submitMethod"
     data-netlify="true"
-    @submit="getFormValues"
   >
     <input
       :value="formName"

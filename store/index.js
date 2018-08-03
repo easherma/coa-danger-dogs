@@ -9,6 +9,7 @@ const createStore = () => {
       sodaData: [],
       searchPoint: [],
       queryRows: [],
+      cards: [],
     },
     actions: {
       async getData ({ commit }) {
@@ -32,6 +33,9 @@ const createStore = () => {
       },
       SET_ROWS (state, payload) {
         state.queryRows = payload
+      },
+      SET_QUESTIONS (state, payload) {
+        state.cards = payload
       }
     }
   })
