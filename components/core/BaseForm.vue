@@ -57,11 +57,6 @@ export default {
       required: false,
       default: ''
     },
-    actionMethod: {
-      type: String,
-      required: false,
-      default: ''
-    },
     /**
     * The title
     */
