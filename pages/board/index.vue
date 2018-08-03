@@ -5,15 +5,15 @@
     <base-form
       form-header="Submit a Question!"
       instruction="Write your Question here and submit when done:"
-      submit-method="post"
+      submit-method="POST"
       form-name="question"
     />
 
     <base-form
       form-header="Submit a Answer!"
       instruction="Write your answer here and submit when done:"
-      submit-method="post"
-      form-name="question"
+      submit-method="POST"
+      form-name="answer"
     />
 
   </main>

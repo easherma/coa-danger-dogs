@@ -1,16 +1,12 @@
 <template>
   <form
     :method="submitMethod"
-    :action="actionMethod"
+    :name="formName"
     class="pa4 black-80"
     netlify-honeypot="bot-field"
     netlify
-    @submit.prevent="getFormValues"
+    @submit="getFormValues"
   >
-    <input
-      :value="formName"
-      type="hidden"
-      name="form-name" >
     <div class="f6 b db mb2">{{ formHeader }}</div>
     {{ formSubmit }}
     <div>
@@ -55,7 +51,7 @@ export default {
     submitMethod: {
       type: String,
       required: false,
-      default: ''
+      default: 'POST'
     },
     actionMethod: {
       type: String,
