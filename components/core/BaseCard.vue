@@ -1,11 +1,11 @@
 <template>
-  <article class="bg-white br2 pointer grow shadow-4">
+  <article class="bg-white br2 hide-child pointer grow shadow-4">
     <div class="br2 ph2 bg-yellow br--top">
       <h1 class="f4 dib ">{{ header }}</h1>
     </div>
 
     <div class="ph2">
-      <p class="f6 f5-ns lh-copy measure child">
+      <p class="f3 f4-ns lh-copy measure child">
         {{ body }}
       </p>
     </div>

@@ -1,6 +1,7 @@
 <template>
   <main class="center">
     <h2> QA Board </h2>
+    <p> Here is an example of how we'd be able to have users ask or answer questions which could be displayed on a board. </p>
     <div class="pa4 black-80 mw7">
       <ul id="cardsExample">
         <div

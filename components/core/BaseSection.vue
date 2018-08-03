@@ -1,9 +1,9 @@
 <template>
-  <section class="pa3 pa5-ns">
+  <section>
     <header>
-      <h1>{{ title }}</h1>
+      <h1 class="f4 f1-ns fw6 mb2">{{ title }}</h1>
     </header>
-    <p class="measure lh-copy">
+    <p class="f5 f4-ns measure-wide lh-copy mt0">
       {{ copy }}
     </p>
   </section>
