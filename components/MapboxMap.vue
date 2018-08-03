@@ -6,20 +6,9 @@
         center: [-97.743061, 30.267153],
         zoom: 9
       }"
-      :geolocate-control="{
-        show: true,
-        position: 'top-left'
-      }"
-      :scale-control="{
-        show: true,
-        position: 'top-left'
-      }"
-      :fullscreen-control="{
-        show: true,
-        position: 'top-left'
-      }"
       access-token="pk.eyJ1IjoiZWFzaGVybWEiLCJhIjoiY2oxcW51Nzk2MDBkbTJxcGUxdm85bW5xayJ9.7mL0wQ7cjifWwt5DrXMuJA"
       @map-load="mapLoaded"
+
 
     />
   </article>
@@ -53,7 +42,7 @@ export default {
           accessToken: "pk.eyJ1IjoiZWFzaGVybWEiLCJhIjoiY2oxcW51Nzk2MDBkbTJxcGUxdm85bW5xayJ9.7mL0wQ7cjifWwt5DrXMuJA",
           bbox: [-97.938385,30.098665,-97.561485,30.516886]
       });
-      map.addControl(geocoder);
+      map.addControl(geocoder, 'top-left');
       // socrata data
       map.addSource('DDDgeojson', {
         type: 'geojson',

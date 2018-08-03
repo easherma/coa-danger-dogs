@@ -7,11 +7,12 @@
         subtitle2="made by Eric Sherman for City of Austin"
       />
       <base-section title="Purpose" />
-
+      <div class="fr mr4 mw7 right">
+        <soda-map />
+      </div>
 
       <base-card-grid />
 
-      {{ sodaData }}
       <div class="links">
         <a
           href="https://nuxtjs.org/"
@@ -32,7 +33,8 @@ import BaseHeader from '~/components/core/BaseHeader'
 import BaseSection from '~/components/core/BaseSection'
 import BaseCardGrid from '~/components/core/BaseCardGrid'
 import { mapState } from 'vuex'
-import Mapbox from 'mapbox-gl-vue';
+import Mapbox from 'mapbox-gl-vue'
+import SodaMap from '~/components/SodaMap'
 
 
 export default {
@@ -41,7 +43,8 @@ export default {
     BaseHeader,
     BaseSection,
     BaseCardGrid,
-    Mapbox
+    Mapbox,
+    SodaMap
 
   },
   data() {
