@@ -1,11 +1,14 @@
 <template>
   <form
-    :method="submitMethod"
     :name="formName"
-    netlify-honeypot="bot-field"
-    netlify
-    @submit="getFormValues"
+    method="post"
+    data-netlify="true"
+    @submit.prevent="getFormValues"
   >
+    <input 
+      type="hidden" 
+      name="form-name" 
+      value="formName" >
     <div class="f6 b db mb2">{{ formHeader }}</div>
     {{ formSubmit }}
     <div>
@@ -22,9 +25,7 @@
       > Submit </BaseButton>
       <span v-html="hint"/>
     </div>
-    <p class="hidden">
-      <label>Don’t fill this out: <input name="bot-field"></label>
-    </p>
+
   </form>
 </template>
 
@@ -50,12 +51,7 @@ export default {
     submitMethod: {
       type: String,
       required: false,
-      default: 'POST'
-    },
-    actionMethod: {
-      type: String,
-      required: false,
-      default: ''
+      default: 'post'
     },
     /**
     * The title
