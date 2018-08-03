@@ -1,10 +1,12 @@
 <template>
   <div>
-    <base-header
-      title="Dangerous Dogs of Austin"
-      subtitle1="A collection of data for your saftey, education, and empowerment"
-      subtitle2="made by Eric Sherman for City of Austin"
-    />
+    <div class="bg-gold mw9 center pa1 pt3-ns ph7-l">
+      <base-header
+        title="Dangerous Dogs of Austin"
+        subtitle1="A collection of data for your saftey, education, and empowerment!"
+        subtitle2="made by Eric Sherman for City of Austin"
+      />
+    </div>
     <nav class="db dt-l w-100 border-box pa3 ph7-l bg-blue">
       <Navigation />
     </nav>
