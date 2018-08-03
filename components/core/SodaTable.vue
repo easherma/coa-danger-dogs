@@ -1,27 +1,31 @@
 <template>
-  <section class="container">
-    <div>
-      <mapbox-map />
-      <vue-good-table
-        :columns="columns"
-        :rows="$store.state.queryRows"
-        :fixed-header="true"
-        :line-numbers="true"
-        max-height="500px"
-      />
-    </div>
-  </section>
+  <vue-good-table
+    :columns="columns"
+    :rows="$store.state.sodaData"
+    :fixed-header="true"
+    :line-numbers="true"
+    max-height="500px"
+  />
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import MapboxMap from '~/components/MapboxMap'
 import { VueGoodTable } from 'vue-good-table';
 
 export default {
+  name: 'SodaTable',
   components: {
-    MapboxMap,
-    VueGoodTable
+    VueGoodTable,
+  },
+  props: {
+    // columns: {
+    //   type: Array,
+    //   required: true,
+    // },
+    // rows: {
+    //   type: Array,
+    //   default: '',
+    // },
   },
   data() {
     return {
@@ -84,6 +88,19 @@ export default {
   ]),
   mounted() {
     this.$store.dispatch('getData')
-  }
+  },
+
 }
 </script>
+
+<docs>
+  ```vue
+  <vue-good-table
+    :columns="columns"
+    :rows="$store.state.sodaData"
+    :fixed-header="true"
+    :line-numbers="true"
+    max-height="500px"
+  />
+  ```
+</docs>

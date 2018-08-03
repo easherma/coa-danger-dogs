@@ -1,10 +1,18 @@
 const webpack = require('webpack')
 
+
 module.exports = {
+
+transition: {
+  name: 'page',
+  mode: 'out-in',
+
+},
   modules: [
     '@nuxtjs/axios',
   ],
-
+  mode: 'spa'
+  ,
   axios: {
     // proxyHeaders: false
   },
@@ -25,9 +33,12 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://api.tiles.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.css' }
+      { rel: 'stylesheet', href: 'https://api.tiles.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.css' },
+      { rel: 'stylesheet', href: 'https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css' }
       ],
   },
+  plugins: ['~/plugins/vue-good-table']
+  ,
   /*
   ** Customize the progress bar color
   */
@@ -38,7 +49,8 @@ module.exports = {
   build: {
     plugins: [
       new webpack.ProvidePlugin({
-        mapboxgl: 'mapbox-gl'
+        mapboxgl: 'mapbox-gl',
+        geocoder: '@mapbox/mapbox-gl-geocoder'
       })
     ],
     /*

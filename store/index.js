@@ -7,12 +7,18 @@ const createStore = () => {
     state: {
       counter: 0,
       sodaData: [],
+      searchPoint: [],
+      queryRows: [],
     },
     actions: {
       async getData ({ commit }) {
         const data = await this.$axios.$get(url)
         commit('SET_DATA', data)
-      }
+      },
+      // async getSearchPoint ({ commit }) {
+      //   const point = commit
+      //   commit('SET_POINT', point)
+      // },
     },
     mutations: {
       increment (state) {
@@ -20,6 +26,12 @@ const createStore = () => {
       },
       SET_DATA (state, data) {
         state.sodaData = data
+      },
+      SET_POINT (state, payload) {
+        state.searchPoint = payload
+      },
+      SET_ROWS (state, payload) {
+        state.queryRows = payload
       }
     }
   })
