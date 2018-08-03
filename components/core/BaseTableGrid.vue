@@ -8,14 +8,11 @@
 </template>
 
 <script>
-import ClientTable from 'vue-tables-2';
+
 
 export default {
   name: 'BaseTableGrid'
   ,
-  components: {
-    ClientTable
-  },
   data() {
     return{
       data: {

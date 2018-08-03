@@ -21,7 +21,6 @@
     "mapbox-gl-vue": "^1.9.0",
     "nuxt": "^1.0.0",
     "soda-js": "^0.2.3",
-    "vue-tables-2": "^1.4.64"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
@@ -33,6 +32,5 @@
     "vue-good-table": "^2.12.2",
     "vue-styleguidist": "^1.7.13",
     "vue-webpack-loaders": "^1.0.8",
-    "vuetable-2": "^1.7.5"
   }
 }

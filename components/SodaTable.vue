@@ -1,19 +1,11 @@
 <template>
-  <main>
-    <h2> This is what the data looks like </h2>
-    <!-- <v-client-table
-      :data="$store.state.sodaData"
-      :columns="columns"
-      :options="options"/> -->
-    <vue-good-table
-      :columns="columns"
-      :rows="$store.state.sodaData"
-      :fixed-header="true"
-      :line-numbers="true"
-      max-height="500px"
-    />
-    <!-- {{ sodaData }} -->
-  </main>
+  <vue-good-table
+    :columns="columns"
+    :rows="$store.state.sodaData"
+    :fixed-header="true"
+    :line-numbers="true"
+    max-height="500px"
+  />
 </template>
 
 <script>
@@ -21,6 +13,7 @@ import { mapState } from 'vuex'
 import { VueGoodTable } from 'vue-good-table';
 
 export default {
+  name: 'SodaTable',
   components: {
     VueGoodTable,
   },
@@ -89,5 +82,44 @@ export default {
 
 }
 </script>
-<style>
-</style>
+
+<docs>
+  ```vue
+  <vue-good-table
+    :columns="[
+        {
+          label: 'Name',
+          field: 'name',
+        },
+        {
+          label: 'Age',
+          field: 'age',
+          type: 'number',
+        },
+        {
+          label: 'Created On',
+          field: 'createdAt',
+          type: 'date',
+          dateInputFormat: 'YYYY-MM-DD',
+          dateOutputFormat: 'MMM Do YY',
+        },
+        {
+          label: 'Percent',
+          field: 'score',
+          type: 'percentage',
+        },
+      ]s"
+    :rows="[
+        { id:1, name:"John", age: 20, createdAt: '201-10-31:9: 35 am',score: 0.03343 },
+        { id:2, name:"Jane", age: 24, createdAt: '2011-10-31', score: 0.03343 },
+        { id:3, name:"Susan", age: 16, createdAt: '2011-10-30', score: 0.03343 },
+        { id:4, name:"Chris", age: 55, createdAt: '2011-10-11', score: 0.03343 },
+        { id:5, name:"Dan", age: 40, createdAt: '2011-10-21', score: 0.03343 },
+        { id:6, name:"John", age: 20, createdAt: '2011-10-31', score: 0.03343 },
+      ]"
+    :fixed-header="true"
+    :line-numbers="true"
+    max-height="500px"
+  />
+  ```
+</docs>
