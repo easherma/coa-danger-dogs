@@ -2,7 +2,6 @@
   <form
     :method="submitMethod"
     :name="formName"
-    class="pa4 black-80"
     netlify-honeypot="bot-field"
     netlify
     @submit="getFormValues"
