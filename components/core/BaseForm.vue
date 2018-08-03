@@ -1,11 +1,9 @@
 <template>
   <form
+    :name="formName"
     :method="submitMethod"
-    :action="actionMethod"
-    class="pa4 black-80"
-    netlify-honeypot="bot-field"
-    netlify
-    @submit.prevent="getFormValues"
+    data-netlify="true"
+    @submit="getFormValues"
   >
     <input
       :value="formName"
@@ -27,9 +25,7 @@
       > Submit </BaseButton>
       <span v-html="hint"/>
     </div>
-    <p class="hidden">
-      <label>Don’t fill this out: <input name="bot-field"></label>
-    </p>
+
   </form>
 </template>
 
@@ -50,12 +46,12 @@ export default {
     formName: {
       type: String,
       required: true,
-      default: 'input-form'
+      default: 'inputForm'
     },
     submitMethod: {
       type: String,
       required: false,
-      default: ''
+      default: 'post'
     },
     /**
     * The title
@@ -102,17 +98,21 @@ export default {
 }
 </style>
 <docs>
-```vue
+
+```
 <base-form
 formHeader="Submit a Question!"
+formName="question"
 instruction="Write your Question here and submit when done:"
-submitMethod="post"
+submitMethod=""
 />
 ```
 ```vue
 <base-form
 formHeader="Submit a Answer!"
+formName="answer"
 instruction="Write your answer here and submit when done:"
+submitMethod=""
 />
 ```
 </docs>

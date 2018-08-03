@@ -18,7 +18,6 @@ import AppLogo from '~/components/AppLogo.vue'
 import BaseSection from '~/components/core/BaseSection'
 import BaseCardGrid from '~/components/core/BaseCardGrid'
 import { mapState } from 'vuex'
-import Mapbox from 'mapbox-gl-vue'
 import SodaMap from '~/components/SodaMap'
 
 
@@ -27,7 +26,6 @@ export default {
     AppLogo,
     BaseSection,
     BaseCardGrid,
-    Mapbox,
     SodaMap
 
   },
