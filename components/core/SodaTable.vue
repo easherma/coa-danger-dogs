@@ -10,7 +10,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import { VueGoodTable } from 'vue-good-table';
+import { VueGoodTable } from 'vue-good-table'
 
 export default {
   name: 'SodaTable',

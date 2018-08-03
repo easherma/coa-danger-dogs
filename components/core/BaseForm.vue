@@ -7,12 +7,14 @@
     netlify
     @submit.prevent="getFormValues"
   >
-  <input type="hidden" name="form-name" :value="formName" />
+    <input
+      :value="formName"
+      type="hidden"
+      name="form-name" >
     <div class="f6 b db mb2">{{ formHeader }}</div>
     {{ formSubmit }}
-    <br>
     <div>
-      <p class="f6 b db mb2"/>{{ instruction }}</p>
+      <p class="f6 b db mb2">{{ instruction }}</p>
       {{ formInput }}
       <textarea
         v-model="formInput"
@@ -32,25 +34,33 @@
 </template>
 
 <script>
+import BaseButton from '~/components/core/BaseButton'
+
+
 /**
- * text section with title
+ * Forms for submitting information
  *
  */
 export default {
   name: 'BaseForm',
+  components: {
+    BaseButton,
+  },
   props: {
     formName: {
       type: String,
       required: true,
       default: 'input-form'
-    }
+    },
     submitMethod: {
       type: String,
-      required: false
+      required: false,
+      default: ''
     },
     actionMethod: {
       type: String,
-      required: false
+      required: false,
+      default: ''
     },
     /**
     * The title
