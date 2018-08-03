@@ -10,17 +10,27 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
+    "precommit": "npm run lint",
+    "styleguide": "vue-styleguidist server",
+    "styleguide:build": "vue-styleguidist build"
   },
   "dependencies": {
+    "@mapbox/mapbox-gl-geocoder": "^2.3.0",
     "@nuxtjs/axios": "^5.3.1",
-    "nuxt": "^1.0.0"
+    "mapbox-gl": "^0.47.0",
+    "mapbox-gl-vue": "^1.9.0",
+    "nuxt": "^1.0.0",
+    "soda-js": "^0.2.3"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
     "eslint": "^4.15.0",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.7.1",
-    "eslint-plugin-vue": "^4.0.0"
+    "eslint-plugin-vue": "^4.0.0",
+    "tachyons": "^4.10.0",
+    "vue-good-table": "^2.12.2",
+    "vue-styleguidist": "^1.7.13",
+    "vue-webpack-loaders": "^1.0.8"
   }
 }

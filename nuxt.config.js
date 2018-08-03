@@ -1,11 +1,26 @@
+const webpack = require('webpack')
+
+
 module.exports = {
+
+transition: {
+  name: 'page',
+  mode: 'out-in',
+
+},
   modules: [
     '@nuxtjs/axios',
   ],
-
+  mode: 'spa'
+  ,
   axios: {
     // proxyHeaders: false
   },
+
+  css: [
+  // Load a Node.js module directly (here it's a Sass file)
+  'tachyons',
+],
   /*
   ** Headers of the page
   */
@@ -17,9 +32,13 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'website displaying information about dangerous dogs in Austin, Texas' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://api.tiles.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.css' },
+      { rel: 'stylesheet', href: 'https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css' }
+      ],
   },
+  plugins: ['~/plugins/vue-good-table']
+  ,
   /*
   ** Customize the progress bar color
   */
@@ -28,6 +47,12 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    plugins: [
+      new webpack.ProvidePlugin({
+        mapboxgl: 'mapbox-gl',
+        geocoder: '@mapbox/mapbox-gl-geocoder'
+      })
+    ],
     /*
     ** Run ESLint on save
     */

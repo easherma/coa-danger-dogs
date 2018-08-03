@@ -1,28 +1,31 @@
 <template>
-  <main>
-    <h2> This is what the data looks like </h2>
-    <!-- <v-client-table
-      :data="$store.state.sodaData"
-      :columns="columns"
-      :options="options"/> -->
-    <vue-good-table
-      :columns="columns"
-      :rows="$store.state.sodaData"
-      :fixed-header="true"
-      :line-numbers="true"
-      max-height="500px"
-    />
-    <!-- {{ sodaData }} -->
-  </main>
+  <vue-good-table
+    :columns="columns"
+    :rows="$store.state.sodaData"
+    :fixed-header="true"
+    :line-numbers="true"
+    max-height="500px"
+  />
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import { VueGoodTable } from 'vue-good-table';
+import { VueGoodTable } from 'vue-good-table'
 
 export default {
+  name: 'SodaTable',
   components: {
     VueGoodTable,
+  },
+  props: {
+    // columns: {
+    //   type: Array,
+    //   required: true,
+    // },
+    // rows: {
+    //   type: Array,
+    //   default: '',
+    // },
   },
   data() {
     return {
@@ -89,3 +92,15 @@ export default {
 
 }
 </script>
+
+<docs>
+  ```vue
+  <vue-good-table
+    :columns="columns"
+    :rows="$store.state.sodaData"
+    :fixed-header="true"
+    :line-numbers="true"
+    max-height="500px"
+  />
+  ```
+</docs>

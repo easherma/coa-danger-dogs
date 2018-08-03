@@ -1,53 +1,42 @@
 <template>
-  <div>
-    <nuxt/>
-  </div>
+  <body class="w-100">
+    <div class="bg-gold center pa1 pt3-ns ph7-l">
+      <base-header
+        title="Dangerous Dogs of Austin"
+        subtitle1="A collection of data for your saftey, education, and empowerment!"
+        subtitle2="made by Eric Sherman for City of Austin"
+      />
+    </div>
+    <nav class="dib dt-l w-100 pa3 ph7-l bg-blue">
+      <Navigation />
+    </nav>
+
+    <div class="center pa1 pt3-ns ph4-l">
+      <nuxt/>
+    </div>
+    <footer class="bg-yellow ph3 ph4-ns pv2 ">
+      <nav class="db dt-l w-100 pb3 tc">
+
+        <Navigation />
+      </nav>
+    </footer>
+  </body>
 </template>
 
 <style>
 html {
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+/* using tachyons! */
 }
 </style>
 
+<script>
+import Navigation from '~/components/Navigation.vue'
+import BaseHeader from '~/components/core/BaseHeader'
+
+export default {
+  components: {
+    Navigation,
+    BaseHeader
+  }
+}
+</script>
