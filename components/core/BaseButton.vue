@@ -1,9 +1,9 @@
 <template>
   <div class="Button">
     <button
-      :style="{ color: color, fontSize: fontSize }"
-      class="button"
-      @click.prevent="onClick">
+      :class="styleClass"
+      type="buttonType"
+      @click="onClick">
       <slot/>
     </button>
   </div>
@@ -13,13 +13,18 @@
 
 // import loggerMixin from '../../mixins/loggerMixin';
 
-/**
- * The only true button.
- */
+
 export default {
 	name: 'BaseButton',
-	// mixins: [loggerMixin],
 	props: {
+    styleClass: {
+      type: String,
+      default: 'f6 link dim br2 ph3 pv2 mb2 dib white bg-black'
+    },
+    buttonType: {
+      type: String,
+      default: 'button'
+    },
 		/**
 		 * The color for the button.
 		 */
@@ -40,10 +45,11 @@ export default {
 		 * @ignore
 		 */
 		onClick: {
-			type:Function,
+			type: Function,
 			default: (event) => {
 				console.log('You have clicked me!', event.target);
-			}
+			},
+      required: false
 		}
 	},
 	computed: {
@@ -66,45 +72,31 @@ export default {
 }
 </script>
 
-<style scope>
-.button {
-	padding: .5em 1.5em;
-	color: #666;
-	background-color: #fff;
-	border: 1px solid currentColor;
-	border-radius: .3em;
-	text-align: center;
-	vertical-align: middle;
-	cursor: pointer;
-}
-.checks {
-	background-image: linear-gradient(45deg, #f5f5f5 25%, transparent 25%), linear-gradient(-45deg, #f5f5f5 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #f5f5f5 75%), linear-gradient(-45deg, transparent 75%, #f5f5f5 75%);
-	background-size: 16px 16px;
-	background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
-}
-</style>
 <docs>
-You can add a custom classes to an example wrapper (```` ```js { "className": "checks" }````):
+  ```vue
+<BaseButton styleClass="f6 link dim br2 ph3 pv2 mb2 dib white bg-dark-red"> Button Text </BaseButton>
 
-```js { "className": "checks" }
-<Button>I’m transparent!</Button>
-```
-
-Or disable an editor by passing a `noeditor` modifier (```` ```js noeditor````):
-
-```jsx noeditor
-<Button>Push Me</Button>
-```
-
-To render an example as highlighted source code add a `static` modifier: (```` ```js static````):
-
-```js static
-import Vue from 'vue';
-```
-
-Fenced blocks with other languages are rendered as highlighted code:
-
-```html
-<h1>Hello world</h1>
-```
+  ```
 </docs>
+
+<style >
+/* default button */
+button {
+  display: inline-block;
+  border: none;
+  padding: 1rem 2rem;
+  margin: 0;
+  text-decoration: none;
+  background: #0069ed;
+  color: #ffffff;
+  font-family: sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out,
+              transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+</style>
