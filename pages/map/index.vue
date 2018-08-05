@@ -1,28 +1,27 @@
 <template>
-  <main>
-    <h2> This is what the data looks like </h2>
-    <!-- <v-client-table
-      :data="$store.state.sodaData"
-      :columns="columns"
-      :options="options"/> -->
-    <vue-good-table
-      :columns="columns"
-      :rows="$store.state.sodaData"
-      :fixed-header="true"
-      :line-numbers="true"
-      max-height="500px"
-    />
-    <!-- {{ sodaData }} -->
-  </main>
+  <section class="container">
+    <div>
+      <mapbox-map />
+      <vue-good-table
+        :columns="columns"
+        :rows="$store.state.queryRows"
+        :fixed-header="true"
+        :line-numbers="true"
+        max-height="500px"
+      />
+    </div>
+  </section>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import MapboxMap from '~/components/MapboxMap'
 import { VueGoodTable } from 'vue-good-table';
 
 export default {
   components: {
-    VueGoodTable,
+    MapboxMap,
+    VueGoodTable
   },
   data() {
     return {
@@ -85,7 +84,6 @@ export default {
   ]),
   mounted() {
     this.$store.dispatch('getData')
-  },
-
+  }
 }
 </script>

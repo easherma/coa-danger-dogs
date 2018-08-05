@@ -1,28 +1,27 @@
 <template>
-  <main>
-    <h2> This is what the data looks like </h2>
-    <!-- <v-client-table
-      :data="$store.state.sodaData"
-      :columns="columns"
-      :options="options"/> -->
-    <vue-good-table
-      :columns="columns"
-      :rows="$store.state.sodaData"
-      :fixed-header="true"
-      :line-numbers="true"
-      max-height="500px"
-    />
-    <!-- {{ sodaData }} -->
-  </main>
+  <div>
+    <mapbox-map />
+    <div>
+      <vue-good-table
+        :columns="columns"
+        :rows="$store.state.queryRows"
+        max-height="500px"
+        style-class="vgt-table striped condensed"
+        max-width="20px"
+      />
+    </div>
+  </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import MapboxMap from '~/components/MapboxMap'
 import { VueGoodTable } from 'vue-good-table';
 
 export default {
   components: {
-    VueGoodTable,
+    MapboxMap,
+    VueGoodTable
   },
   data() {
     return {
@@ -30,12 +29,14 @@ export default {
         {
           field: ':@computed_region_a3it_2a2z',
           type: 'number',
-          label: ':@computed_region_a3it_2a2z'
+          label: ':@computed_region_a3it_2a2z',
+          hidden: true,
         },
         {
-          field: 'address',
-          type: 'text',
-          label: 'address'
+          field: 'range_ft',
+          type: 'number',
+          label: 'Distance(feet)',
+          width: '5px',
         },
         {
           field: 'description_of_dog',
@@ -53,19 +54,28 @@ export default {
           label: 'last_name'
         },
         {
+          field: 'address',
+          type: 'text',
+          label: 'address'
+        },
+        {
           field: 'location',
           type: 'text',
-          label: 'location'
+          label: 'location',
+          hidden: true,
         },
         {
           field: 'location_address',
           type: 'text',
-          label: 'location_address'
+          label: 'location_address',
+          hidden: true,
         },
         {
           field: 'location_state',
           type: 'text',
-          label: 'location_state'
+          label: 'State',
+          width: '5px',
+          hidden: true
         },
         {
           field: 'location_zip',
@@ -75,8 +85,9 @@ export default {
         {
           field: 'zip_code',
           type: 'number',
-          label: 'zip_code'
-        }
+          label: 'zip_code',
+          hidden: true,
+        },
       ],
   };
   },
@@ -85,7 +96,6 @@ export default {
   ]),
   mounted() {
     this.$store.dispatch('getData')
-  },
-
+  }
 }
 </script>
