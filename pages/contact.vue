@@ -6,7 +6,6 @@
     <div class="bg-red mw7 center pa4 br2-ns ba b--black-10">
       <form
         name="contact"
-        action="/confirm"
         netlify-honeypot="bot-field"
         method="post"
         netlify>
